@@ -1,0 +1,36 @@
+/* Search bar container */
+.search-bar {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Search input field */
+.search-bar input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Search button */
+.search-bar button {
+    width: 20%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #00bfff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+.search-bar button:hover {
+    background-color: #00bfff;
+}
+
+

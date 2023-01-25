@@ -1,0 +1,14 @@
+<div class="search-bar"><form (ngSubmit)="searchMovies(searchTerm)">
+    <input [(ngModel)]="searchTerm" name="searchTerm">
+    <button type="submit">Search</button>
+</form>
+</div>
+
+<div *ngFor="let movie of movies" class="movie-posters" >
+    <h1><a [routerLink]="['/film', movie.id]">{{ movie.title }}</a></h1>
+    <p>{{ movie.release_date }}</p>
+    <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
+</div>
+
+
+

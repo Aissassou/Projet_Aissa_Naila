@@ -1,0 +1,7 @@
+<div class="movie-container">
+<h1 class="movie-title">{{ movie.title }}</h1>
+<img class="movie-poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Affiche de film">
+<p>Date de sortie : {{ movie.release_date }}</p>
+<p class="movie-overview">Synopsis : {{ movie.overview }}</p>
+<p>Note: {{ movie.vote_average }}</p>
+</div>
