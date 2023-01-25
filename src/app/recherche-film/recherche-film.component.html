@@ -3,12 +3,13 @@
     <button type="submit">Search</button>
 </form>
 </div>
-
-<div *ngFor="let movie of movies" class="movie-posters" >
-    <h1><a [routerLink]="['/film', movie.id]">{{ movie.title }}</a></h1>
-    <p>{{ movie.release_date }}</p>
-    <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
+<mat-paginator
+  [length]="movies.length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="setPage($event)">
+</mat-paginator>
+<div *ngFor="let movie of  movies.slice(start,end)" class="movie-posters">
+  <h1><a [routerLink]="['/film', movie.id]">{{ movie.title }}</a></h1>
+  <p>{{ movie.release_date }}</p>
+  <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
 </div>
-
 
 
