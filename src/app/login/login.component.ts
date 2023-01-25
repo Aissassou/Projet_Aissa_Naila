@@ -33,18 +33,19 @@ export class LoginComponent implements OnInit {
 
   
   seConnecter(){
-    this.mockService.getConfig().subscribe((res) => {
+     this.mockService.getConfig().subscribe((res) => {
       this.mockEmail = res.email;
       this.mockPassword= res.password;
-      console.log(res)
+
+      if((this.mockEmail!=this.email.value) || (this.mockPassword!=this.password.value)){
+        console.log(this.mockEmail);
+        this.mockService.jesuisConnecte = false;
+        return console.log("invalid id");
+      } else {
+        this.mockService.jesuisConnecte = true;
+        this.router.navigateByUrl('/admin');
+      }
     });
-
-    if(! (this.mockEmail!=this.email || this.mockPassword!=this.password)){
-      return console.log("invalid id");
-    }
-
-    this.authService.seConnecter(this.loginForm.value);
-    this.router.navigateByUrl('/admin');
   }
 
 }

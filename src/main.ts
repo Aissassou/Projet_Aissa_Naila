@@ -10,7 +10,7 @@ if (environment.production) {
 
 new Server({
   routes() {
-    this.passthrough();
+    this.passthrough('https://api.themoviedb.org/**');
     this.get('/login', () => require('../src/app/mock-user.data.json'));
   }
 }) 

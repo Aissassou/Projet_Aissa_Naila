@@ -17,7 +17,8 @@ import { AuthGuard } from './auth.guard';
   
   {
     path: 'favoris',
-    component: FavoriteMoviesComponent
+    component: FavoriteMoviesComponent,
+    canActivate: [AuthGuard]
   },
   
   {
