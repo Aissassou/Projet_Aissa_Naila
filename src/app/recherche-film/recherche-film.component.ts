@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Movie } from '../movie';
-import { SearchResult } from '../search-result';
-
-
-
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Movie} from '../movie';
+import {SearchResult} from '../search-result';
 
 @Component({
   selector: 'app-recherche-film',
@@ -14,13 +11,15 @@ import { SearchResult } from '../search-result';
 export class RechercheFilmComponent implements OnInit {
 
 
-
   public searchTerm: string = '';
   public movies: Movie[] = [];
- 
-  constructor(private http: HttpClient) { }
+  public temporary: string = '';
+
+  constructor(private http: HttpClient) {
+  }
 
   searchMovies(searchTerm: string) {
+    sessionStorage.setItem('lastSearch', searchTerm);
 
     this.movies = [];
     this.http.get<SearchResult>('https://api.themoviedb.org/3/search/movie?api_key=d447357a06be78ac9b47310c3a320100&query=' + searchTerm)
@@ -30,7 +29,10 @@ export class RechercheFilmComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('lastSearch') != null) {
+      this.temporary = sessionStorage.getItem('lastSearch') as string;
 
+    }
+    this.searchMovies(this.temporary);
   }
-
 }
