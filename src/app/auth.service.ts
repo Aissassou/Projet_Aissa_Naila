@@ -5,13 +5,6 @@ import { Utilisateur } from './utilisateur';
   providedIn: 'root'
 })
 export class AuthService {
-
-
-/*
-  login(email: string, password: string) {
-    
-  }
-  */
  
   constructor() { }
   public seConnecter(userInfo: Utilisateur){
@@ -24,5 +17,4 @@ export class AuthService {
   public deconnecter(){
     localStorage.removeItem('ACCESS_TOKEN');
   }
-
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from  '@angular/forms';
-import { Utilisateur } from  '../utilisateur';
-import { AuthService } from  '../auth.service';
+import { FormControl, FormGroup, Validators } from  '@angular/forms';
 import { MockService } from '../mock.service';
 
 @Component({
@@ -21,7 +19,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private authService: AuthService, private mockService: MockService, private router: Router ) { }
+  constructor(private mockService: MockService, private router: Router ) { }
     
   ngOnInit() { 
      this.loginForm=new FormGroup({
@@ -38,11 +36,10 @@ export class LoginComponent implements OnInit {
       this.mockPassword= res.password;
 
       if((this.mockEmail!=this.email.value) || (this.mockPassword!=this.password.value)){
-        console.log(this.mockEmail);
-        this.mockService.jesuisConnecte = false;
+        this.mockService.jesuisConnecte=false;
         return console.log("invalid id");
       } else {
-        this.mockService.jesuisConnecte = true;
+        this.mockService.jesuisConnecte=true;
         this.router.navigateByUrl('/admin');
       }
     });
