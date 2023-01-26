@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Movie} from '../movie';
 import {SearchResult} from '../search-result';
 import { PageEvent } from '@angular/material/paginator';
-
+import {FavoritesServiceService} from "../favorites.service";
 
 @Component({
   selector: 'app-recherche-film',
@@ -21,7 +21,7 @@ export class RechercheFilmComponent implements OnInit {
   public start: number=0;
   public end:number=5;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private favoritesService: FavoritesServiceService) {
   }
 
   searchMovies(searchTerm: string) {
@@ -40,6 +40,9 @@ export class RechercheFilmComponent implements OnInit {
   }
 
 
+  addToFavorites(movie: Movie) {
+    this.favoritesService.addToFavorites(movie);
+  }
 
   ngOnInit(): void {
     if (sessionStorage.getItem('lastSearch') != null) {
