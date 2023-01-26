@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/admin');
       }
     });
+
+    console.log("valeur " + this.mockService.jesuisConnecte)
+
   }
 
 }

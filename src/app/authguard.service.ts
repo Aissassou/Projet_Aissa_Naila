@@ -5,15 +5,14 @@ import { MockService } from './mock.service';
 
 
 @Injectable()
-export class AuthGuard   {
+export class AuthguardService implements CanActivate {
 
   constructor(private mockService: MockService){}
-/*
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return  this.mockService.jesuisConnecte;
   }
-  */
 
 }

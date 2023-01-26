@@ -6,7 +6,7 @@ import { DetailFilmComponent } from './detail-film/detail-film.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { LoginComponent } from './login/login.component';
 import { RechercheFilmComponent } from './recherche-film/recherche-film.component';
-import { AuthGuard } from './auth.guard';
+import { AuthguardService } from './authguard.service';
 
 
   const routes: Routes = [
@@ -18,7 +18,7 @@ import { AuthGuard } from './auth.guard';
   {
     path: 'favoris',
     component: FavoriteMoviesComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthguardService]
   },
   
   {
@@ -41,6 +41,7 @@ import { AuthGuard } from './auth.guard';
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthguardService]
 })
 export class AppRoutingModule { }
