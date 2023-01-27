@@ -17,9 +17,18 @@ export class FavoritesService {
     return this.favoriteMovies;
   }
 
+
   addToFavorites(movie: Movie) {
-    this.favoriteMovies.push(movie);
-    sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
+    if(!this.isInFavorites(movie)){
+      this.favoriteMovies.push(movie);
+      sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
+    } else {
+      console.log('Le film est déjà dans les favoris');
+    }
+  }
+
+  isInFavorites(movie:Movie):boolean{
+    return(this.getFavoriteMovies().findIndex(m => m.id === movie.id) !== -1);
   }
 
   removeFromFavorites(movie: Movie) {
