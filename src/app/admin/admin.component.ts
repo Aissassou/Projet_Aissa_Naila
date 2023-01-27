@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MockService } from '../mock.service';
+import { MockService } from '../service/mock.service';
 
 @Component({
   selector: 'app-admin',
@@ -16,6 +16,6 @@ export class AdminComponent implements OnInit {
 
   seDeconnecter(){
     this.mockService.jesuisConnecte=false;
-    this.router.navigateByUrl('/connexion');
+    this.router.navigateByUrl('/accueil');
   }
 }

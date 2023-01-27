@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MovieService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMovies(query: string, page: number) {
     const apiKey = 'd447357a06be78ac9b47310c3a320100';

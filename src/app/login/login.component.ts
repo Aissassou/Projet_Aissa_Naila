@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from  '@angular/forms';
-import { MockService } from '../mock.service';
+import { MockService } from '../service/mock.service';
 
 @Component({
   selector: 'app-login',

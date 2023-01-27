@@ -6,7 +6,7 @@ import { DetailFilmComponent } from './detail-film/detail-film.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { LoginComponent } from './login/login.component';
 import { RechercheFilmComponent } from './recherche-film/recherche-film.component';
-import { AuthguardService } from './authguard.service';
+import { AuthguardService } from './service/authguard.service';
 
 
   const routes: Routes = [

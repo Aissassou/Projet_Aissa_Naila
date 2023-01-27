@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Movie} from '../movie';
-import {SearchResult} from '../search-result';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Movie } from '../model/movie';
+import { SearchResult } from '../model/search-result';
 import { PageEvent } from '@angular/material/paginator';
-import {FavoritesServiceService} from "../favorites.service";
+import { FavoritesService } from "../service/favorites.service";
 
 @Component({
   selector: 'app-recherche-film',
@@ -17,11 +17,11 @@ export class RechercheFilmComponent implements OnInit {
   public pageSizeOptions = [5, 10, 25];
   public searchTerm: string = '';
   public movies: Movie[] = [];
-  public temporary: string = '';
-  public start: number=0;
-  public end:number=5;
+  private temporary: string = '';
+  public start: number = 0;
+  public end: number = 5;
 
-  constructor(private http: HttpClient,private favoritesService: FavoritesServiceService) {
+  constructor(private http: HttpClient, private favoritesService: FavoritesService) {
   }
 
   searchMovies(searchTerm: string) {
@@ -34,8 +34,8 @@ export class RechercheFilmComponent implements OnInit {
 
   }
   setPage(pageEvent: PageEvent) {
-     this.start = pageEvent.pageIndex * pageEvent.pageSize;
-     this.end = this.start + pageEvent.pageSize;
+    this.start = pageEvent.pageIndex * pageEvent.pageSize;
+    this.end = this.start + pageEvent.pageSize;
 
   }
 

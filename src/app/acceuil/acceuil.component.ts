@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie';
-import { SearchResult } from '../search-result';
+import { Movie } from '../model/movie';
+import { SearchResult } from '../model/search-result';
 
 @Component({
   selector: 'app-acceuil',

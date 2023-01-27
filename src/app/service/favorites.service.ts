@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Movie } from './movie';
+import { Movie } from '../model/movie';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FavoritesServiceService {
+export class FavoritesService {
   private favoriteMovies: Movie[] = [];
 
   constructor() {
@@ -13,18 +13,15 @@ export class FavoritesServiceService {
     }
   }
 
-  // get the list of favorit movies
   getFavoriteMovies(): Movie[] {
     return this.favoriteMovies;
   }
 
-  // add a movie to the list of favorites
   addToFavorites(movie: Movie) {
     this.favoriteMovies.push(movie);
     sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
   }
 
-  // remove a movie from the list of favorites
   removeFromFavorites(movie: Movie) {
     this.favoriteMovies = this.favoriteMovies.filter(m => m.id !== movie.id);
     sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
