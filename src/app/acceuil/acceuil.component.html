@@ -1,9 +1,10 @@
-Bienvenue sur MoviePlanet
-voici
-
-
-<div *ngFor="let movie of trendingMovies">
-    <h1><a [routerLink]="['/film', movie.id]">{{ movie.title }}</a></h1>
-    <p>{{ movie.release_date }}</p>
-    <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
+<div class="aff">
+    <div *ngFor="let movie of trendingMovies" class="container">
+        <div class="movie">
+            <a [routerLink]="['/film', movie.id]"> <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+                    class="rounded"></a>
+            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">{{ movie.title }}</a>
+            <p>{{ movie.release_date }}</p>
+        </div>
+    </div>
 </div>

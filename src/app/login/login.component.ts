@@ -32,10 +32,7 @@ export class LoginComponent implements OnInit {
   
   seConnecter(){
      this.mockService.getConfig().subscribe((res) => {
-      this.mockEmail = res.email;
-      this.mockPassword= res.password;
-
-      if((this.mockEmail!=this.email.value) || (this.mockPassword!=this.password.value)){
+      if((res.email!=this.email.value) || (res.password!=this.password.value)){
         this.mockService.jesuisConnecte=false;
         return console.log("invalid id");
       } else {

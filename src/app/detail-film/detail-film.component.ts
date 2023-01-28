@@ -16,6 +16,7 @@ export class DetailFilmComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
+    window.scrollTo( 0 , 0);
     this.movieId = this.route.snapshot.paramMap.get('id');
 
     this.http.get(`https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${this.apiKey}`)

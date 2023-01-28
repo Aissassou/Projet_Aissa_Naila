@@ -1,13 +1,12 @@
-.movie-container {
-    position: relative;
-    
+.container {
+  margin-top: 10%;   
   }
   
  
-  .movie-poster {
+  .rounded {
     width: 300px;
     height: 450px;
-    margin-right: 20px;
+   
   }
   
  
@@ -24,4 +23,8 @@
     margin-bottom: 20px;
   }
   
+  .movie-average {
+    font-size: 16px;
+
+  }
   

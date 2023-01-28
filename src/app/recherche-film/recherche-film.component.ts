@@ -4,6 +4,7 @@ import { Movie } from '../model/movie';
 import { SearchResult } from '../model/search-result';
 import { PageEvent } from '@angular/material/paginator';
 import { FavoritesService } from "../service/favorites.service";
+import { MockService } from '../service/mock.service';
 
 @Component({
   selector: 'app-recherche-film',
@@ -21,7 +22,7 @@ export class RechercheFilmComponent implements OnInit {
   public start: number = 0;
   public end: number = 5;
 
-  constructor(private http: HttpClient, private favoritesService: FavoritesService) {
+  constructor(private http: HttpClient, private favoritesService: FavoritesService, public mockService: MockService) {
   }
 
   searchMovies(searchTerm: string) {
@@ -34,6 +35,7 @@ export class RechercheFilmComponent implements OnInit {
 
   }
   setPage(pageEvent: PageEvent) {
+    window.scrollTo(0, 0);
     this.start = pageEvent.pageIndex * pageEvent.pageSize;
     this.end = this.start + pageEvent.pageSize;
 

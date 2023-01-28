@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { PaginationComponent } from './pagination/pagination.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,9 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ResultatFilmComponent,
     AcceuilComponent,
     LoginComponent,
-    AdminComponent,
-    PaginationComponent
-  ],
+    AdminComponent
+    ],
   imports: [
 
     BrowserModule,

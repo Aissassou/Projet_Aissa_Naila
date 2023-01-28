@@ -1,13 +1,12 @@
 <header class="header">
-    <div class="navbar">
-  <a routerLink="accueil">Accueil</a>
-  <a routerLink="/recherche">Rechercher un film</a>
-  <a routerLink="/favoris">Liste de favoris</a>
-  <a routerLink="/login">Se connceter</a>
-    </div>
-  </header>
-  <router-outlet></router-outlet>
-  
-  <footer class="footer">
-   
-  </footer>
+  <div class="navbar justify-content-center">
+    <a routerLink="accueil">Home</a>
+    <a routerLink="/recherche">Search</a>
+    <a routerLink="/favoris">Favorites</a>
+    <div *ngIf="this.mockService.jesuisConnecte==false"><a routerLink="/login">Login</a></div>
+    <div *ngIf="this.mockService.jesuisConnecte==true"><button (click)="signOut()">
+        Sign out
+      </button></div>
+  </div>
+</header>
+<router-outlet></router-outlet>

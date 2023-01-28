@@ -1,16 +1,32 @@
-<div class="search-bar"><form (ngSubmit)="searchMovies(searchTerm)">
-    <input [(ngModel)]="searchTerm" name="searchTerm"  >
-    <button type="submit">Search</button>
-</form>
+<div class="container">
+  <div class="search-bar">
+    <form class="d-flex" (ngSubmit)="searchMovies(searchTerm)">
+      <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control me-2" type="search" placeholder="Search"
+        aria-label="Search">
+      <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+  </div>
 </div>
-<mat-paginator
-  [length]="movies.length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="pageSizeOptions" (page)="setPage($event)">
+
+<mat-paginator class="pagin" [length]="movies.length" [pageSize]="pageSize" [pageIndex]="pageIndex"
+  [pageSizeOptions]="pageSizeOptions" (page)="setPage($event)">
 </mat-paginator>
-<div *ngFor="let movie of  movies.slice(start,end)" class="movie-posters">
-  <h1><a [routerLink]="['/film', movie.id]">{{ movie.title }}</a></h1>
-  <p>{{ movie.release_date }}</p>
-  <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
-  <button (click)="addToFavorites(movie)">add to favorites</button>
-</div>
-
-
+<div class="aff">
+  <div class="container">
+    <div *ngFor="let movie of  movies.slice(start,end)" class="movie-posters">
+      <div class="movie">
+        <div class="row">
+          <div class="col">
+            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">{{ movie.title }}</a>
+            <p>{{ movie.release_date }}</p>
+            <div *ngIf="this.mockService.jesuisConnecte==true"><button class="btn btn-light"
+                (click)="addToFavorites(movie)">+ Favorites</button></div>
+          </div>
+          <div class="col">
+            <a [routerLink]="['/film', movie.id]"><img
+                [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
