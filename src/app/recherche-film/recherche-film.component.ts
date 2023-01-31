@@ -47,6 +47,7 @@ export class RechercheFilmComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     if (sessionStorage.getItem('lastSearch') != null) {
       this.temporary = sessionStorage.getItem('lastSearch') as string;
 

@@ -1,7 +1,22 @@
-<h1>favorite movies </h1>
-<div *ngFor="let movie of favoriteMovies">
-  <h1>{{ movie.title }}</h1>
-  <p>{{ movie.release_date }}</p>
-  <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
-  <button class="btn" (click)="removeFromFavorites(movie)">Remove from favorites</button>
+<div class="aff">
+  <div class="container">
+    <div *ngFor="let movie of favoriteMovies">
+      <div class="movie">
+        <div class="row">
+          <div class="col">
+            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">
+              <h1>{{ movie.title }}</h1>
+            </a>
+            <p>{{ movie.release_date }}</p>
+            <button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
+          </div>
+          <div class="col">
+            <a [routerLink]="['/film', movie.id]">
+              <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

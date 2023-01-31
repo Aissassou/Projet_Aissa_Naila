@@ -13,18 +13,22 @@
 </mat-paginator>
 <div class="aff">
   <div class="container">
-    <div *ngFor="let movie of  movies.slice(start,end)" class="movie-posters">
+    <div *ngFor="let movie of  movies.slice(start,end)">
       <div class="movie">
         <div class="row">
           <div class="col">
-            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">{{ movie.title }}</a>
+            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">
+              <h1>{{ movie.title }}</h1>
+              </a>
             <p>{{ movie.release_date }}</p>
-            <div *ngIf="this.mockService.jesuisConnecte==true"><button class="btn btn-light"
-                (click)="addToFavorites(movie)">+ Favorites</button></div>
+            <div *ngIf="this.mockService.jesuisConnecte==true">
+              <button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
+            </div>
           </div>
           <div class="col">
-            <a [routerLink]="['/film', movie.id]"><img
-                [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"></a>
+            <a [routerLink]="['/film', movie.id]">
+              <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
+            </a>
           </div>
         </div>
       </div>

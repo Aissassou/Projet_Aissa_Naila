@@ -1,17 +1,8 @@
-.btn {
-    -webkit-border-radius: 60;
-    -moz-border-radius: 60;
-    border-radius: 60px;
-    border-width: 0;
-    font-family: Georgia;
-    color: #e8e1e8;
-    font-size: 15px;
-    background: #3498db;
-    padding: 7px 40px 7px 40px;
-    text-decoration: none;
-  }
-  
-  .btn:hover {
-    background: #3cb0fd;
-    text-decoration: none;
-  }
+.aff {
+  display: flex;
+}
+
+.movie {
+  margin-top: 6%;
+  margin-bottom: 3%;
+}

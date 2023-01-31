@@ -13,6 +13,7 @@ export class FavoriteMoviesComponent implements OnInit {
   constructor(private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.favoriteMovies = this.favoritesService.getFavoriteMovies();
   }
 
