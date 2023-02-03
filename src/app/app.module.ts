@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MovieDetailComponent,
     HomeComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    NotFoundComponent
     ],
   imports: [
 

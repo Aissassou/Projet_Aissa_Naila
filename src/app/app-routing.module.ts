@@ -7,6 +7,7 @@ import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.compo
 import { LoginComponent } from './login/login.component';
 import { MovieResearch } from './movie-research/movie-research';
 import { AuthguardService } from './service/authguard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
 
-  { path: '**', component: HomeComponent }
+  { path: '**', component: NotFoundComponent }
 
 ];
 
