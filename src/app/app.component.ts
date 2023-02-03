@@ -10,13 +10,16 @@ import { MockService } from './service/mock.service';
 export class AppComponent {
   title = 'projet-Aissa_Naila';
 
-  constructor(public mockService: MockService,private router: Router){}
-  
-  signOut(){
-    this.mockService.jesuisConnecte=false;
-    this.router.navigateByUrl('/accueil');
+  constructor(private mockService: MockService, private router: Router) { }
+
+  signOut() {
+    this.mockService.isConnected = false;
+    this.router.navigateByUrl('/home');
   }
 
+  isConnected(): boolean {
+    return this.mockService.isConnected == true;
+  }
 
 
 }

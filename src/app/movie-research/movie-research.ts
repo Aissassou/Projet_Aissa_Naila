@@ -7,11 +7,11 @@ import { FavoritesService } from "../service/favorites.service";
 import { MockService } from '../service/mock.service';
 
 @Component({
-  selector: 'app-recherche-film',
-  templateUrl: './recherche-film.component.html',
-  styleUrls: ['./recherche-film.component.scss']
+  selector: 'app-movie-research',
+  templateUrl: './movie-research.component.html',
+  styleUrls: ['./movie-research.component.scss']
 })
-export class RechercheFilmComponent implements OnInit {
+export class MovieResearch implements OnInit {
 
   public pageSize = 5;
   public pageIndex = 0;
@@ -22,8 +22,9 @@ export class RechercheFilmComponent implements OnInit {
   public start: number = 0;
   public end: number = 5;
 
-  constructor(private http: HttpClient, private favoritesService: FavoritesService, public mockService: MockService) {
+  constructor(private http: HttpClient, private favoritesService: FavoritesService, private mockService: MockService) {
   }
+
 
   searchMovies(searchTerm: string) {
     sessionStorage.setItem('lastSearch', searchTerm);
@@ -41,8 +42,18 @@ export class RechercheFilmComponent implements OnInit {
 
   }
 
+  isConnected() : boolean {
+    return this.mockService.isConnected == true;
+
+  }
+
+  isInFavorites(movie: Movie): boolean {
+    return this.favoritesService.isInFavorites(movie);
+  }
+
 
   addToFavorites(movie: Movie) {
+    alert("You add '" + movie.title + "' to your favorites !")
     this.favoritesService.addToFavorites(movie);
   }
 

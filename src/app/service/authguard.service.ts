@@ -12,7 +12,7 @@ export class AuthguardService implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return  this.mockService.jesuisConnecte;
+      return  this.mockService.isConnected;
   }
 
 }

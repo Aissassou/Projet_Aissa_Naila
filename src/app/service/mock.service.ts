@@ -7,7 +7,7 @@ import { Utilisateur } from '../model/utilisateur';
 })
 export class MockService {
 
-  public jesuisConnecte: boolean = false;
+  public isConnected: boolean = false;
 
   constructor(private http: HttpClient) {
   }

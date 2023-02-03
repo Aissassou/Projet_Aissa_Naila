@@ -1,42 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AcceuilComponent } from './acceuil/acceuil.component';
+import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { DetailFilmComponent } from './detail-film/detail-film.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 import { LoginComponent } from './login/login.component';
-import { RechercheFilmComponent } from './recherche-film/recherche-film.component';
+import { MovieResearch } from './movie-research/movie-research';
 import { AuthguardService } from './service/authguard.service';
 
 
-  const routes: Routes = [
-    {
-      path:'recherche',
-      component : RechercheFilmComponent
-    },
-  
-  {
-    path: 'favoris',
-    component: FavoriteMoviesComponent,
-    canActivate: [AuthguardService]
-  },
-  
-  {
-    path: 'film/:id',
-    component: DetailFilmComponent
-  },
+const routes: Routes = [
+  { path: 'search', component: MovieResearch },
+
+  { path: 'favorites', component: FavoriteMoviesComponent, canActivate: [AuthguardService] },
+
+  { path: 'film/:id', component: MovieDetailComponent },
 
   { path: 'login', component: LoginComponent },
 
   { path: 'admin', component: AdminComponent },
 
+  { path: 'home', component: HomeComponent },
 
-  {
-  path: '**',
-  component: AcceuilComponent
-  }
-  
-  ];
+  { path: '**', component: HomeComponent }
+
+];
 
 
 @NgModule({

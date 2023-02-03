@@ -21,8 +21,11 @@
               <h1>{{ movie.title }}</h1>
               </a>
             <p>{{ movie.release_date }}</p>
-            <div *ngIf="this.mockService.jesuisConnecte==true">
+            <div *ngIf="this.isConnected() && !this.isInFavorites(movie)">
               <button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
+            </div>
+            <div *ngIf="this.isConnected() && this.isInFavorites(movie)">
+              <p>In favorites<p>
             </div>
           </div>
           <div class="col">

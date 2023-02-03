@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
-import { RechercheFilmComponent } from './recherche-film/recherche-film.component';
-import { DetailFilmComponent } from './detail-film/detail-film.component';
-import { ResultatFilmComponent } from './resultat-film/resultat-film.component';
-import { AcceuilComponent } from './acceuil/acceuil.component';
+import { MovieResearch } from './movie-research/movie-research';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,10 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     FavoriteMoviesComponent,
-    RechercheFilmComponent,
-    DetailFilmComponent,
-    ResultatFilmComponent,
-    AcceuilComponent,
+    MovieResearch,
+    MovieDetailComponent,
+    HomeComponent,
     LoginComponent,
     AdminComponent
     ],

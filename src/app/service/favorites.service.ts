@@ -19,12 +19,9 @@ export class FavoritesService {
 
 
   addToFavorites(movie: Movie) {
-    if(!this.isInFavorites(movie)){
       this.favoriteMovies.push(movie);
       sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
-    } else {
-      console.log('Le film est déjà dans les favoris');
-    }
+      alert("You add '"+ movie.title +"' to your favorites !")
   }
 
   isInFavorites(movie:Movie):boolean{

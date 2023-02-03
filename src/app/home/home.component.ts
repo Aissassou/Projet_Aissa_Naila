@@ -4,11 +4,11 @@ import { Movie } from '../model/movie';
 import { SearchResult } from '../model/search-result';
 
 @Component({
-  selector: 'app-acceuil',
-  templateUrl: './acceuil.component.html',
-  styleUrls: ['./acceuil.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AcceuilComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   public trendingMovies: Movie[] = [];
 
