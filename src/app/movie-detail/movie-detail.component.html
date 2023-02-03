@@ -15,10 +15,10 @@
             <p class="movie-average">Average : {{ movie.vote_average }}/10</p>
             <a [href]="trailerUrl" target="_blank">Watch trailer</a>
             <div *ngIf="isConnected()==true && !this.isInFavorites(movie)">
-                <button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
+                <br><button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
             </div>
             <div *ngIf="isConnected()==true && this.isInFavorites(movie)">
-                <p>In favorites</p>
+                <br><button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ import { SearchResult } from '../model/search-result';
 import { PageEvent } from '@angular/material/paginator';
 import { FavoritesService } from "../service/favorites.service";
 import { MockService } from '../service/mock.service';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Component({
@@ -34,7 +34,6 @@ export class MovieResearch implements OnInit {
     this.http.get<SearchResult>('https://api.themoviedb.org/3/search/movie?api_key=d447357a06be78ac9b47310c3a320100&query=' + searchTerm + '&page=' + (this.pageIndex + 1) + '&page_size=' + this.pageSize)
       .pipe(
         catchError(error => {
-          //alert("Sorry an error happened please try again");
           return of({ results: [] });
         })
       )
@@ -51,17 +50,18 @@ export class MovieResearch implements OnInit {
 
   isConnected(): boolean {
     return this.mockService.isConnected == true;
-
   }
 
   isInFavorites(movie: Movie): boolean {
     return this.favoritesService.isInFavorites(movie);
   }
 
-
   addToFavorites(movie: Movie) {
-    alert("You add '" + movie.title + "' to your favorites !")
     this.favoritesService.addToFavorites(movie);
+  }
+
+  removeFromFavorites(movie : Movie){
+    this.favoritesService.removeFromFavorites(movie);
   }
 
   ngOnInit(): void {

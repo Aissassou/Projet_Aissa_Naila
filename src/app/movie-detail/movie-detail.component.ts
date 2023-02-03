@@ -45,4 +45,8 @@ export class MovieDetailComponent implements OnInit {
     this.favoritesService.addToFavorites(movie);
   }
 
+  removeFromFavorites(movie : Movie){
+    this.favoritesService.removeFromFavorites(movie);
+  }
+
 }

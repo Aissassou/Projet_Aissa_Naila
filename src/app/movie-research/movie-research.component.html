@@ -25,8 +25,7 @@
               <button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
             </div>
             <div *ngIf="this.isConnected() && this.isInFavorites(movie)">
-              <p>In favorites
-              <p>
+              <button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
             </div>
           </div>
           <div class="col">

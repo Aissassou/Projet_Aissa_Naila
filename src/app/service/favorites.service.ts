@@ -21,7 +21,6 @@ export class FavoritesService {
   addToFavorites(movie: Movie) {
       this.favoriteMovies.push(movie);
       sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
-      alert("You add '"+ movie.title +"' to your favorites !")
   }
 
   isInFavorites(movie:Movie):boolean{
