@@ -5,6 +5,8 @@ import { SearchResult } from '../model/search-result';
 import { PageEvent } from '@angular/material/paginator';
 import { FavoritesService } from "../service/favorites.service";
 import { MockService } from '../service/mock.service';
+import { of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-research',
@@ -30,19 +32,24 @@ export class MovieResearch implements OnInit {
     sessionStorage.setItem('lastSearch', searchTerm);
     this.movies = [];
     this.http.get<SearchResult>('https://api.themoviedb.org/3/search/movie?api_key=d447357a06be78ac9b47310c3a320100&query=' + searchTerm + '&page=' + (this.pageIndex + 1) + '&page_size=' + this.pageSize)
+      .pipe(
+        catchError(error => {
+          //alert("Sorry an error happened please try again");
+          return of({ results: [] });
+        })
+      )
       .subscribe(data => {
         this.movies = data.results;
       });
-
   }
+
   setPage(pageEvent: PageEvent) {
     window.scrollTo(0, 0);
     this.start = pageEvent.pageIndex * pageEvent.pageSize;
     this.end = this.start + pageEvent.pageSize;
-
   }
 
-  isConnected() : boolean {
+  isConnected(): boolean {
     return this.mockService.isConnected == true;
 
   }
@@ -61,9 +68,7 @@ export class MovieResearch implements OnInit {
     window.scrollTo(0, 0);
     if (sessionStorage.getItem('lastSearch') != null) {
       this.temporary = sessionStorage.getItem('lastSearch') as string;
-
     }
     this.searchMovies(this.temporary);
-
   }
 }

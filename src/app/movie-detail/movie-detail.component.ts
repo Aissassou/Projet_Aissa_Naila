@@ -15,6 +15,7 @@ export class MovieDetailComponent implements OnInit {
   public movie: any;
   private movieId: any;
   private  apiKey = 'd447357a06be78ac9b47310c3a320100';
+  public trailerUrl!: string;
 
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private favoritesService: FavoritesService, public mockService: MockService) { }
@@ -26,6 +27,9 @@ export class MovieDetailComponent implements OnInit {
     this.http.get(`https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${this.apiKey}`)
       .subscribe((data) => {
         this.movie = data;
+        if (this.movie) {
+          this.trailerUrl = "https://www.youtube.com/results?search_query=" + this.movie.title + " + trailer";
+        }
       });
   }
 
