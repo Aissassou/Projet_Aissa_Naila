@@ -14,10 +14,6 @@ export class LoginComponent implements OnInit {
   get email() { return this.loginForm.get('email') };
   get password() { return this.loginForm.get('password') };
 
-  public mockEmail !: string;
-  public mockPassword !: string;
-
-
 
   constructor(private mockService: MockService, private router: Router) { }
 
@@ -34,12 +30,11 @@ export class LoginComponent implements OnInit {
     this.mockService.getConfig().subscribe((res) => {
       if ((res.email != this.email.value) || (res.password != this.password.value)) {
         this.mockService.isConnected = false;
-        return console.log("invalid id");
       } else {
         this.mockService.isConnected = true;
         this.router.navigateByUrl('/admin');
       }
     });
   }
-  
+
 }

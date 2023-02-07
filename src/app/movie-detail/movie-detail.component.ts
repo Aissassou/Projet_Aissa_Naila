@@ -14,8 +14,8 @@ export class MovieDetailComponent implements OnInit {
 
   public movie: any;
   private movieId: any;
-  private  apiKey = 'd447357a06be78ac9b47310c3a320100';
-  public trailerUrl!: string;
+  private apiKey = 'd447357a06be78ac9b47310c3a320100';
+  public trailerUrl !: string;
 
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private favoritesService: FavoritesService, public mockService: MockService) { }
@@ -45,7 +45,7 @@ export class MovieDetailComponent implements OnInit {
     this.favoritesService.addToFavorites(movie);
   }
 
-  removeFromFavorites(movie : Movie){
+  removeFromFavorites(movie: Movie) {
     this.favoritesService.removeFromFavorites(movie);
   }
 

@@ -5,6 +5,7 @@ import { Movie } from '../model/movie';
   providedIn: 'root'
 })
 export class FavoritesService {
+  
   private favoriteMovies: Movie[] = [];
 
   constructor() {
@@ -19,12 +20,12 @@ export class FavoritesService {
 
 
   addToFavorites(movie: Movie) {
-      this.favoriteMovies.push(movie);
-      sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
+    this.favoriteMovies.push(movie);
+    sessionStorage.setItem('favoriteMovies', JSON.stringify(this.favoriteMovies));
   }
 
-  isInFavorites(movie:Movie):boolean{
-    return(this.getFavoriteMovies().findIndex(m => m.id === movie.id) !== -1);
+  isInFavorites(movie: Movie): boolean {
+    return (this.getFavoriteMovies().findIndex(m => m.id === movie.id) !== -1);
   }
 
   removeFromFavorites(movie: Movie) {
