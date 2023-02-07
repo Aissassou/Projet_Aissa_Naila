@@ -42,6 +42,20 @@ export class MovieResearch implements OnInit {
       });
   }
 
+  getCat(cat : String){
+    this.movies = [];
+    this.http.get<SearchResult>('https://api.themoviedb.org/3/discover/movie?api_key=d447357a06be78ac9b47310c3a320100&with_genres=' + cat + '&page=' + (this.pageIndex + 1) + '&page_size=' + this.pageSize)
+      .pipe(
+        catchError(error => {
+          return of({ results: [] });
+        })
+      )
+      .subscribe(data => {
+        this.movies = data.results;
+      });
+
+  }
+
   setPage(pageEvent: PageEvent) {
     window.scrollTo(0, 0);
     this.start = pageEvent.pageIndex * pageEvent.pageSize;
