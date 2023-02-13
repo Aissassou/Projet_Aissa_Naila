@@ -1,25 +1,25 @@
 <div class="container ">
-    <div class="row">
-        <div class="col">
-            <div *ngIf="movie.poster_path">
-                <img class="rounded" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
-            </div>
-            <div *ngIf="!movie.poster_path">
-                <img class="rounded" src="../assets/image-not-found.jpg">
-            </div>
-        </div>
-        <div class="col">
-            <h1 class="movie-title">{{ movie.title }}</h1>
-            <p>{{ movie.release_date }}</p>
-            <p class="movie-overview">{{ movie.overview }}</p>
-            <p class="movie-average">Average : {{ movie.vote_average }}/10</p>
-            <a [href]="trailerUrl" target="_blank">Watch trailer</a>
-            <div *ngIf="isConnected()==true && !this.isInFavorites(movie)">
-                <br><button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
-            </div>
-            <div *ngIf="isConnected()==true && this.isInFavorites(movie)">
-                <br><button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="movie.poster_path">
+        <img class="rounded" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+      </div>
+      <div *ngIf="!movie.poster_path">
+        <img class="rounded" src="../assets/image-not-found.jpg">
+      </div>
     </div>
+    <div class="col">
+      <h1 class="movie-title">{{ movie.title }}</h1>
+      <p>{{ movie.release_date }}</p>
+      <p class="movie-overview">{{ movie.overview }}</p>
+      <p class="movie-average">Average : {{ movie.vote_average }}/10</p>
+      <a [href]="trailerUrl" target="_blank">Watch trailer</a>
+      <div *ngIf="!this.isInFavorites(movie)">
+        <br><button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
+      </div>
+      <div *ngIf="isConnected()==true && this.isInFavorites(movie)">
+        <br><button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
+      </div>
+    </div>
+  </div>
 </div>

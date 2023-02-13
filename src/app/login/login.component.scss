@@ -1,14 +1,34 @@
-.login-header {
-  margin-top: 14%;
-  background: rgba(43, 113, 251, 0.628);
-  padding: 20px;
-  font-size: 1.4em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
+.container {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.login-container {
+  height: 10rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: inherit;
+  }
 }
 
 .span {
   color: red;
+}
+.btn{
+  width: 100%;
+  border: none;
+  background-color: #E4B721;
+  color: black;
+}
+.container{
+  //background-image: url('https://www.laboutiquederic.com/images/zappiti/interface-tv/lecteur-video-filmotheque-jaquette-fichier-mkv-dvd-blu-ray-4k.jpg');
+
 }

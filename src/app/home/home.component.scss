@@ -1,18 +1,35 @@
 .aff{
- display: flex; 
- justify-content:space-between;
- align-items: baseline;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  place-items: center;
+  padding-top: 5rem;
+  background-color: #000000;
 }
 
 .movie {
-    margin-top: 30%;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: .5rem;
+  height: 35rem;
+
+  a {
+    color: white;
+  }
+
+  :nth-child(2):hover {
+    text-decoration: underline;
+  }
+
+  p {
+    color: #F5C518;
+  }
 
 }
 
 .text-decoration-none{
-    font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(131, 113, 237);
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(131, 113, 237);
 }

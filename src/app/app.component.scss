@@ -1,60 +1,60 @@
-.navbar{
-    background-color: #333;
-    overflow: hidden;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: .5rem 2rem;
+  background-color: #333;
+  z-index: 10;
+
+  img {
+    width: 5rem;
+  }
+
+  .navigation {
     display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    align-items: center;
+    gap: 2rem;
+
+    a {
+      padding: .5rem 1rem;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    
-    .navbar a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-    
-    .navbar a:hover {
-        background-color: #ddd;
-        color: black;
-      }
 
-      .navbar button:hover {
-        background-color: #ddd;
-        color: black;
-      }
+    a:hover {
+      background-color: #252525;
+    }
+  }
+}
 
-      .navbar button{
-        float: left;
-        background-color: #333;
-        color: #f2f2f2;
-        border: 0;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
+@media (max-width: 458px) {
+  .navbar {
+    justify-content: center;
 
-      }
-      
-    
-      footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #333;
-        text-align: center;
-      }
+    img {
+      display: none;
+    }
+  }
+}
 
-      footer p {
-        font-size: larger;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        color: #f2f2f2;
-      }
-    
-  
-    
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  text-align: center;
+  z-index: 10;
+
+  p {
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #f2f2f2;
+  }
+}

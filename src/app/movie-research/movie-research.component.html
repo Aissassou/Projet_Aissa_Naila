@@ -1,61 +1,75 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <button type="submit" class="nav-link" (click)="getCat('27')">Horror</button>
-        </li>
-        <li class="nav-item">
-          <button type="submit" class="nav-link" (click)="getCat('28')">Action</button>
-        </li>
-        <li class="nav-item">
-          <button type="submit" class="nav-link" (click)="getCat('53')">Thriller</button>
-        </li>
-        <li class="nav-item">
-          <button type="submit" class="nav-link" (click)="getCat('35')">Comedy</button>
-        </li>
-      </ul>
-    </div>
+<nav class="navbar-container">
+  <div class="search-container">
+    <ul>
+      <li class="nav-item">
+        <button type="submit" class="nav-link" (click)="getCat('27')">
+          Horror
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="submit" class="nav-link" (click)="getCat('28')">
+          Action
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="submit" class="nav-link" (click)="getCat('53')">
+          Thriller
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="submit" class="nav-link" (click)="getCat('35')">
+          Comedy
+        </button>
+      </li>
+    </ul>
     <form class="d-flex" (ngSubmit)="searchMovies(searchTerm)">
-      <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control me-2" type="search" placeholder="Search"
-        aria-label="Search">
+      <input
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
       <button type="submit" class="btn btn-outline-success">Search</button>
     </form>
   </div>
 </nav>
 
-
-<mat-paginator class="pagin" [length]="movies.length" [pageSize]="pageSize" [pageIndex]="pageIndex"
-  [pageSizeOptions]="pageSizeOptions" (page)="setPage($event)">
+<mat-paginator
+  class="pagin"
+  [length]="movies.length"
+  [pageSize]="pageSize"
+  [pageIndex]="pageIndex"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="setPage($event)"
+>
 </mat-paginator>
 <div class="aff">
-  <div class="container">
-    <div *ngFor="let movie of  movies.slice(start,end)">
+  <div class="movie-container">
+    <div *ngFor="let movie of movies.slice(start, end)">
       <div class="movie">
-        <div class="row">
-          <div class="col">
-            <a [routerLink]="['/film', movie.id]" class="text-decoration-none">
-              <h1>{{ movie.title }}</h1>
-            </a>
-            <p>{{ movie.release_date }}</p>
-            <div *ngIf="this.isConnected() && !this.isInFavorites(movie)">
-              <button class="btn btn-light" (click)="addToFavorites(movie)">+ Favorites</button>
-            </div>
-            <div *ngIf="this.isConnected() && this.isInFavorites(movie)">
-              <button class="btn btn-light" (click)="removeFromFavorites(movie)">Remove from favorites</button>
-            </div>
-          </div>
-          <div class="col">
-            <a [routerLink]="['/film', movie.id]">
-              <div *ngIf="movie.poster_path">
-                <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
-              </div>
-              <div *ngIf="!movie.poster_path">
-                <img src="../assets/image-not-found.jpg">
-              </div>
-            </a>
-          </div>
+        <a [routerLink]="['/film', movie.id]" class="text-decoration-none">
+          <h1 class="film-title">{{ movie.title }}</h1>
+        </a>
+        <p>{{ movie.release_date }}</p>
+        <div *ngIf="this.isConnected() && !this.isInFavorites(movie)" class="fav-container">
+          <button class="fav-btn" (click)="addToFavorites(movie)"><img src="../../assets/icons/save-empty.png" alt="fav"></button>
         </div>
+        <div *ngIf="this.isConnected() && this.isInFavorites(movie)" class="fav-container">
+          <button class="fav-btn" (click)="removeFromFavorites(movie)"><img src="../../assets/icons/save-full.png" alt="fav"></button>
+        </div>
+        <a [routerLink]="['/film', movie.id]">
+          <div *ngIf="movie.poster_path" class="img-container">
+            <img
+              [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path"
+            />
+          </div>
+          <div *ngIf="!movie.poster_path" class="img-container">
+            <img src="../assets/image-not-found.jpg" />
+          </div>
+        </a>
       </div>
     </div>
   </div>
+</div>
