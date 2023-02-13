@@ -2,33 +2,52 @@
   display: grid;
   place-items: center;
   height: 100%;
+  max-width: 100%;
 }
 
 .login-container {
-  height: 10rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2 {
     text-align: center;
+
+    margin-bottom: 1rem;
   }
 
   form {
+    width: 80%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: inherit;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+  }
+
+  .span {
+    color: red;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .btn{
+    width: 100%;
+    border: none;
+    background-color: #E4B721;
+    color: black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
   }
 }
 
-.span {
-  color: red;
-}
-.btn{
-  width: 100%;
-  border: none;
-  background-color: #E4B721;
-  color: black;
-}
 .container{
-  //background-image: url('https://www.laboutiquederic.com/images/zappiti/interface-tv/lecteur-video-filmotheque-jaquette-fichier-mkv-dvd-blu-ray-4k.jpg');
+  background-image: url('https://www.laboutiquederic.com/images/zappiti/interface-tv/lecteur-video-filmotheque-jaquette-fichier-mkv-dvd-blu-ray-4k.jpg');
 
 }
