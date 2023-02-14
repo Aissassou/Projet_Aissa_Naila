@@ -1,7 +1,7 @@
 .movie {
   position: relative;
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 20%;
   background-color: rgba(255, 255, 255, 0.76);
   padding: 1.5rem;
   width: 20rem;
@@ -10,7 +10,7 @@
   box-shadow: 0px 0px 3px #333;
 
   .img-container {
-    height: 17rem;
+    height: 20rem;
     width: 100%;
 
     img {
@@ -35,12 +35,12 @@
     }
   }
 }
-.btn-outline-success{
+
+.btn-outline-success {
   border-color: #F5C518;
-
   color: black;
-
 }
+
 .btn:hover {
   background-color: #F5C518;
 }
@@ -52,12 +52,9 @@
   margin-top: 2rem;
 }
 
-.aff{
-
- background-color: rgba(245, 197, 24, 0.23);
+.aff {
+  background-color: rgba(180, 177, 172, 0.247);
 }
-
-
 
 .pagin {
   position: fixed;
@@ -72,8 +69,6 @@
 
 .navbar-container {
   margin-top: 5rem;
-
-
 
   .search-container {
     display: flex;
